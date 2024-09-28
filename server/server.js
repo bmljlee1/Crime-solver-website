@@ -14,7 +14,27 @@ const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
-// Root route
+//  fetch a single crime case by its ID
+app.get("/crime-cases/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const result = await db.query("SELECT * FROM crime_cases WHERE id = $1", [
+      id,
+    ]);
+
+    if (result.rows.length === 0) {
+      return res
+        .status(404)
+        .json({ message: `No crime case found with ID: ${id}` });
+    }
+
+    res.status(200).json(result.rows[0]); // Send the single crime case as a response
+  } catch (error) {
+    res.status(500).json({ error: `${error.name}: ${error.message}` });
+  }
+});
+
 app.get("/", (req, res) => {
   try {
     res
@@ -25,7 +45,7 @@ app.get("/", (req, res) => {
   }
 });
 
-// GET /theories/:caseName to fetch theories for a specific case
+//  fetch theories for a specific case
 app.get("/theories/:caseName", async (req, res) => {
   const { caseName } = req.params;
 
@@ -40,7 +60,7 @@ app.get("/theories/:caseName", async (req, res) => {
         .status(404)
         .json({ message: `No theories found for case: ${caseName}` });
     } else {
-      res.status(200).json(result.rows); // Fixed typo (result instead of results)
+      res.status(200).json(result.rows);
     }
   } catch (error) {
     res.status(500).json({ error: `${error.name}: ${error.message}` });
@@ -56,7 +76,7 @@ app.get("/theories", async (req, res) => {
   }
 });
 
-// POST /theories to add a new theory
+// add a new theory
 app.post("/theories", async (req, res) => {
   const { title, content, author, crime_case } = req.body;
 
@@ -74,46 +94,91 @@ app.post("/theories", async (req, res) => {
       [title, content, author, crime_case]
     );
 
-    // Return the newly inserted theory
+    // Returns the newly inserted theory
     res.status(201).json(result.rows[0]);
   } catch (error) {
-    res.status(500).json(`${error.name}: ${error.message}`); // Send a meaningful error response
+    res.status(500).json(`${error.name}: ${error.message}`);
   }
 });
 
 app.get("/test-db", async (req, res) => {
   try {
-    const result = await db.query("SELECT NOW()"); // Simple query to check DB connection
+    const result = await db.query("SELECT NOW()");
     res.status(200).json(result.rows[0]);
   } catch (error) {
     res.status(500).json({ error: `${error.name}: ${error.message}` });
   }
 });
 
-// PUT /theories/:id/like to increment likes
+//  increment likes
 app.put("/theories/:id/like", async (req, res) => {
   const { id } = req.params;
 
   try {
-    // Update the likes count by incrementing it
     const result = await db.query(
       "UPDATE theories SET likes = likes + 1 WHERE id = $1 RETURNING *",
       [id]
     );
 
-    // Check if the theory exists
     if (result.rows.length === 0) {
       return res.status(404).json({ message: "Theory not found." });
     }
 
-    // Return the updated theory with the new likes count
     res.status(200).json(result.rows[0]);
   } catch (error) {
     res.status(500).json({ error: `${error.name}: ${error.message}` });
   }
 });
 
-// Start the server
+//fetch all crime cases from the database
+app.get("/crime-cases", async (req, res) => {
+  try {
+    const result = await db.query("SELECT * FROM crime_cases");
+    res.status(200).json(result.rows);
+  } catch (error) {
+    res.status(500).json({ error: `${error.name}: ${error.message}` });
+  }
+});
+
+export const getAllCrimeCases = async () => {
+  try {
+    const response = await fetch("http://localhost:8080/crime-cases");
+    if (!response.ok) {
+      throw new Error("Failed to fetch crime cases");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching crime cases", error);
+    throw error;
+  }
+};
+
+// Join to fetch theories aswell as their related crime cases
+app.get("/theories-with-cases", async (req, res) => {
+  try {
+    const query = `
+      SELECT 
+        theories.id AS theory_id,
+        theories.title AS theory_title,
+        theories.content,
+        theories.author,
+        theories.created_at,
+        theories.likes,
+        crime_cases.id AS case_id,
+        crime_cases.title AS case_title
+      FROM 
+        theories
+      JOIN 
+        crime_cases ON theories.crime_case = crime_cases.id;
+    `;
+
+    const result = await db.query(query);
+    res.status(200).json(result.rows);
+  } catch (error) {
+    res.status(500).json({ error: `${error.name}: ${error.message}` });
+  }
+});
+
 app.listen(PORT, () => {
   console.log("Server is running on port 8080.");
 });
