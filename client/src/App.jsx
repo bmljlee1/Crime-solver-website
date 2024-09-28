@@ -5,7 +5,6 @@ import Theories from "./pages/Theories";
 import Form from "./components/Form";
 import Navbar from "./components/Navbar";
 import FilterTheoriesByCrimeCase from "./components/FilterTheoriesByCrimeCase";
-component;
 import Crimecases from "./pages/Crimecases";
 import CrimeCaseDetails from "./pages/CrimeCaseDetails";
 import Home from "./pages/Home";

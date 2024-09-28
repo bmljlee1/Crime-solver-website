@@ -142,7 +142,7 @@ app.get("/crime-cases", async (req, res) => {
 
 export const getAllCrimeCases = async () => {
   try {
-    const response = await fetch("http://localhost:8080/crime-cases");
+    const response = await fetch("https://week07-project-yykp.onrender.com");
     if (!response.ok) {
       throw new Error("Failed to fetch crime cases");
     }
