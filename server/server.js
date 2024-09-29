@@ -111,6 +111,7 @@ app.post("/theories", async (req, res) => {
 
 app.get("/test-db", async (req, res) => {
   try {
+    console.log("test-db endpoint or some shit");
     const result = await db.query("SELECT NOW()");
     res.status(200).json(result.rows[0]);
   } catch (error) {
@@ -148,20 +149,20 @@ app.get("/crime-cases", async (req, res) => {
   }
 });
 // TODO: move to client side?
-export const getAllCrimeCases = async () => {
-  try {
-    const response = await fetch(
-      "https://week07-project-1.onrender.com/crime-cases"
-    );
-    if (!response.ok) {
-      throw new Error("Failed to fetch crime cases");
-    }
-    return await response.json();
-  } catch (error) {
-    console.error("Error fetching crime cases", error);
-    throw error;
-  }
-};
+// export const getAllCrimeCases = async () => {
+//   try {
+//     const response = await fetch(
+//       "https://week07-project-1.onrender.com/crime-cases"
+//     );
+//     if (!response.ok) {
+//       throw new Error("Failed to fetch crime cases");
+//     }
+//     return await response.json();
+//   } catch (error) {
+//     console.error("Error fetching crime cases", error);
+//     throw error;
+//   }
+// };
 
 // Join to fetch theories aswell as their related crime cases
 app.get("/theories-with-cases", async (req, res) => {
