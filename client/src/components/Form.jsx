@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { addNewTheory } from "../api/ApiTheories";
+import { getAllCrimeCases } from "../api/ApiTheories";
+import "./Form.css";
 
 export default function Form() {
   const [formData, setFormData] = useState({
@@ -8,6 +10,21 @@ export default function Form() {
     author: "",
     crime_case: "",
   });
+
+  const [cases, setCases] = useState([]);
+
+  // Fetch the crime cases when the component loads
+  useEffect(() => {
+    const fetchCrimeCases = async () => {
+      try {
+        const data = await getAllCrimeCases();
+        setCases(data);
+      } catch (error) {
+        console.error("Error fetching crime cases", error);
+      }
+    };
+    fetchCrimeCases();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,26 +44,7 @@ export default function Form() {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Title:
-        <input
-          type="text"
-          name="title"
-          value={formData.title}
-          onChange={handleChange}
-          required
-        />
-      </label>
-      <label>
-        Content:
-        <textarea
-          name="content"
-          value={formData.content}
-          onChange={handleChange}
-          required
-        />
-      </label>
-      <label>
-        Author:
+        Username:
         <input
           type="text"
           name="author"
@@ -56,14 +54,39 @@ export default function Form() {
         />
       </label>
       <label>
-        Crime Case:
+        Theory Title:
         <input
           type="text"
+          name="title"
+          value={formData.title}
+          onChange={handleChange}
+          required
+        />
+      </label>
+      <label>
+        Description:
+        <textarea
+          name="content"
+          value={formData.content}
+          onChange={handleChange}
+          required
+        />
+      </label>
+      <label>
+        Case:&nbsp;
+        <select
           name="crime_case"
           value={formData.crime_case}
           onChange={handleChange}
           required
-        />
+        >
+          <option value="">Select a Case</option>
+          {cases.map((crimeCase) => (
+            <option key={crimeCase.id} value={crimeCase.id}>
+              {crimeCase.title}
+            </option>
+          ))}
+        </select>
       </label>
       <button type="submit">Submit Theory</button>
     </form>

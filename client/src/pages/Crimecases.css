@@ -1,0 +1,58 @@
+/* -----------Styling the page heading-------------- */
+h1 {
+  font-size: 2rem;
+  color: #0077b6; /* Primary theme color */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/*----------------- List Styling for Crime Cases---------------- */
+
+ul.crime-cases-list {
+  list-style-type: none;
+  padding: 0;
+  max-width: 1000px;
+  margin: 20px auto; /* Center the list on the page */
+}
+
+/*--------------- List item styling --------------*/
+ul.crime-cases-list li {
+  background-color: #f9f9f9; /* Light background for list items */
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* --------------Hover effect for list items------------- */
+ul.crime-cases-list li:hover {
+  background-color: #f0f4f8; /* Subtle change on hover */
+}
+
+/* ----------------- Link Styling for Crime Case Titles----------------- */
+
+ul.crime-cases-list li a {
+  text-decoration: none !important;
+  color: #0077b6; /* Primary theme link color */
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: block; /* Ensure the entire link area is clickable */
+  text-align: center;
+}
+
+/*------------------- Hover effect for links-------------------- */
+ul.crime-cases-list li a:hover {
+  color: #005f87; /* Slightly darker shade on hover */
+  text-decoration: none !important; /* Add underline on hover */
+}
+
+/* ------------------------     Container Styles for Page Content------------- */
+
+.container {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #ffffff; /* Ensure content background is white */
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}

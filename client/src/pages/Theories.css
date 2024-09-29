@@ -1,11 +1,74 @@
-h3 {
-  color: #ff4500;
-  text-align: center;
+/*---------------- Style for the container holding the theories------------ */
+.theories-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-top: 40px;
 }
 
-.theories-list {
-  padding: 20px;
-  background-color: #fff5e6;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* ----------------------Theories list --------------------- */
+ul.theories-list {
+  list-style: none; /* Remove bullets */
+  padding: 0;
+}
+
+.theories-list h3 {
+  font-size: 1.8rem; /* Make theory titles larger */
+  color: #d32f2f; /* Bright red to stand out */
+  margin-bottom: 10px;
+}
+
+.theories-list p {
+  font-size: 1.1rem;
+  color: #333; /* Ensure text is dark enough to be legible */
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/* ---------------User and Case details---------------- */
+.theories-list .theory-meta {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+/* -------------------Likes count------------------- */
+.theories-list .theory-likes {
+  font-weight: bold;
+  color: #333;
+}
+
+/* ------------------------Like Button------------------ */
+.theories-list button {
+  background-color: #ff6600;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.theories-list button:hover {
+  background-color: #cc5200;
+}
+
+/* ========== Media Queries for different sizes ========== */
+
+@media (max-width: 768px) {
+  .theories-container {
+    padding: 15px;
+  }
+
+  .theories-list h3 {
+    font-size: 1.5rem;
+  }
+
+  .theories-list p {
+    font-size: 1rem;
+  }
 }

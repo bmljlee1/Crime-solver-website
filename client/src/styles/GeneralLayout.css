@@ -1,3 +1,4 @@
+/* General Styling */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f0f4f8;
@@ -15,8 +16,8 @@ h2 {
 
 /*------------------------- Nav bar styles---------------------- ------------*/
 nav {
-  background-color: #0077b6;
-  padding: 10px 20px;
+  background-color: #02253b; /* Darker blue for better contrast */
+  padding: 15px 20px;
   display: flex;
   justify-content: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -25,19 +26,22 @@ nav {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 30px; /* More spacing between nav items */
 }
 
 nav ul li a {
   text-decoration: none;
   color: white;
-  font-size: 18px;
+  font-size: 20px; /* Larger font size */
   font-weight: bold;
-  transition: color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
+  padding: 8px 12px;
 }
 
 nav ul li a:hover {
-  color: #ffdd00;
+  background-color: #ffdd00; /* Highlight on hover */
+  color: #333; /* Change text color on hover */
+  border-radius: 4px;
 }
 
 /* ------------------------------Container for content-------------------------- */
@@ -51,9 +55,22 @@ nav ul li a:hover {
   border-radius: 8px;
 }
 
+/* ----------------------------- Link styling for crime cases----------------- */
+ul.crime-cases-list li a {
+  text-decoration: none !important;
+  color: #ff6600; /* Bright orange for high contrast */
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+ul.crime-cases-list li a:hover {
+  color: #cc5200; /* Darker orange on hover */
+  text-decoration: none !important;
+}
+
 /* -----------------------------Footer----------------------- --------------------*/
 footer {
-  background-color: #0077b6;
+  background-color: #005082;
   color: white;
   text-align: center;
   padding: 10px;

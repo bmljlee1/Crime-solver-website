@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllCrimeCases, getTheoriesByCaseName } from "../api/ApiTheories";
+import "./FilterTheoriesByCrimeCase.css";
 
 export default function FilterTheoriesByCrimeCase() {
   const [crimeCases, setCrimeCases] = useState([]);
@@ -41,10 +42,10 @@ export default function FilterTheoriesByCrimeCase() {
   }, [selectedCase]);
 
   return (
-    <div>
+    <div className="filter-container">
       <h1>Search Theories by Crime Case</h1>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p className="error-message">{error}</p>}
 
       {/* DROPDOWN FOR CRIME_CASES */}
       {/* https://react.dev/reference/react-dom/components/select */}
@@ -77,11 +78,15 @@ export default function FilterTheoriesByCrimeCase() {
               </li>
             ))
           ) : (
-            <p>No theories found for this crime case.</p>
+            <p className="no-theories-message">
+              No theories found for this crime case.
+            </p>
           )}
         </ul>
       ) : (
-        <p>Please select a crime case to view the theories</p>
+        <p className="no-theories-message">
+          Please select a crime case to view the theories
+        </p>
       )}
     </div>
   );

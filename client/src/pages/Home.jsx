@@ -1,5 +1,6 @@
 import "./Home.css";
 import "../styles/GeneralLayout.css";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -88,7 +89,9 @@ export default function Home() {
           Jump into your first case now and show off your detective skills. Will
           you be the one to crack the case?
         </p>
-        <button className="cta-button">Explore Crime Cases</button>
+        <Link to="/crime-cases">
+          <button className="cta-button">Explore Crime Cases</button>
+        </Link>
       </section>
     </div>
   );

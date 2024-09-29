@@ -1,0 +1,103 @@
+/*----------- Container for the filter theories page--------- */
+.filter-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter-container h1 {
+  font-size: 2.2rem;
+  color: #0077b6;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ----------Dropdown---------- */
+.filter-container select {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 1.1rem;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.filter-container select:focus {
+  border-color: #0077b6;
+  outline: none;
+}
+
+/*---------- Theories list---------- */
+.filter-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.filter-container li {
+  background-color: #f0f4f8;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.filter-container li:hover {
+  background-color: #e0e4e8;
+}
+
+/* ----------Theory title------------- */
+.filter-container li h3 {
+  font-size: 1.6rem;
+  color: #d32f2f;
+  margin-bottom: 10px;
+}
+
+/* -------Theory content text--------- */
+.filter-container li p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/*--------- Error message-------- */
+.filter-container .error-message {
+  color: red;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* ------------Message when no theories found-------- */
+.filter-container .no-theories-message {
+  color: #555;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* ---------- Media Queries ----------- */
+@media (max-width: 768px) {
+  .filter-container {
+    padding: 15px;
+  }
+
+  .filter-container h1 {
+    font-size: 2rem;
+  }
+
+  .filter-container li h3 {
+    font-size: 1.4rem;
+  }
+
+  .filter-container li p {
+    font-size: 1rem;
+  }
+}

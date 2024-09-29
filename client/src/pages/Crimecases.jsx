@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllCrimeCases } from "../api/ApiTheories";
 import { Link } from "react-router-dom";
+import "./Crimecases.css";
 
 export default function CrimeCases() {
   const [crimeCases, setCrimeCases] = useState([]);
@@ -18,12 +19,14 @@ export default function CrimeCases() {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <h1>Crime Cases</h1>
-      <ul>
+      <ul className="crime-cases-list">
         {crimeCases.map((crimeCase) => (
           <li key={crimeCase.id}>
-            <Link to={`/crime-cases/${crimeCase.id}`}>{crimeCase.title}</Link>
+            <Link to={`/crime-cases/${crimeCase.id}`} className="crime-link">
+              {crimeCase.title}
+            </Link>
           </li>
         ))}
       </ul>

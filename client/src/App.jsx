@@ -13,7 +13,7 @@ import NotFound from "./pages/NotFound";
 export default function App() {
   return (
     <div>
-      <h2>The Speculation Station</h2>
+      <h2 id="mainTitle">The Speculation Station</h2>
       <Navbar />
       <Routes>
         <Route path="*" element={<NotFound />} />
