@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCrimeCaseById } from "../api/ApiTheories";
+import "./CrimeCaseDetails.css";
 
 export default function CrimeCaseDetails() {
   const { id } = useParams();
@@ -20,19 +21,17 @@ export default function CrimeCaseDetails() {
     fetchCrimeCase();
   }, [id]);
 
-  if (error) return <p style={{ color: "red" }}>{error}</p>;
-  if (!crimeCase) return <p>Loading...</p>;
+  if (error) return <p className="error-message">{error}</p>;
+  if (!crimeCase) return <p className="loading">Loading...</p>;
 
   return (
-    <div>
+    <div className="crime-case-details">
       <h1>{crimeCase.title}</h1>
       <p>
-        <strong>Case Details:</strong>
-        {crimeCase.details}
+        <strong>Case Details:</strong> {crimeCase.details}
       </p>
       <p>
-        <strong>Evidence:</strong>
-        {crimeCase.evidence}
+        <strong>Evidence:</strong> {crimeCase.evidence}
       </p>
     </div>
   );

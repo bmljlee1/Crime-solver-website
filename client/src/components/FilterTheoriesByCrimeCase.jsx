@@ -73,7 +73,7 @@ export default function FilterTheoriesByCrimeCase() {
               <li key={theory.id}>
                 <h3>{theory.title}</h3>
                 <p>{theory.content}</p>
-                <p>Author: {theory.author}</p>
+                <p>Username: {theory.author}</p>
                 <p>Likes: {theory.likes}</p>
               </li>
             ))

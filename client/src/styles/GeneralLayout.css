@@ -5,6 +5,7 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
+  padding-bottom: 50px; /* To avoid footer overlap */
 }
 
 h2 {
@@ -14,34 +15,49 @@ h2 {
   margin-top: 20px;
 }
 
-/*------------------------- Nav bar styles---------------------- ------------*/
+/*------------------------- Nav bar styles------------------------------*/
 nav {
-  background-color: #02253b; /* Darker blue for better contrast */
+  background-color: #02253b;
   padding: 15px 20px;
   display: flex;
   justify-content: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); /* Softer shadow */
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 30px; /* More spacing between nav items */
+  gap: 30px;
 }
 
 nav ul li a {
   text-decoration: none;
   color: white;
-  font-size: 20px; /* Larger font size */
+  font-size: 1.25rem; /* Larger font size with rem */
   font-weight: bold;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s ease, color 0.3s ease;
   padding: 8px 12px;
 }
 
 nav ul li a:hover {
-  background-color: #ffdd00; /* Highlight on hover */
-  color: #333; /* Change text color on hover */
+  background-color: #ffdd00;
+  color: #333;
   border-radius: 4px;
+}
+
+/* Accessibility and active states */
+nav ul li a:focus,
+nav ul li a:active {
+  outline: 2px solid #ffdd00;
+}
+
+/* Responsive nav bar for smaller screens */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
 }
 
 /* ------------------------------Container for content-------------------------- */
@@ -50,21 +66,29 @@ nav ul li a:hover {
   margin: 0 auto;
   padding: 20px;
   background-color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); /* Softer shadow */
   margin-top: 20px;
   border-radius: 8px;
+}
+
+/* Responsive container */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+    margin: 10px;
+  }
 }
 
 /* ----------------------------- Link styling for crime cases----------------- */
 ul.crime-cases-list li a {
   text-decoration: none !important;
-  color: #ff6600; /* Bright orange for high contrast */
+  color: #ff6600;
   font-weight: bold;
   font-size: 1.2rem;
 }
 
 ul.crime-cases-list li a:hover {
-  color: #cc5200; /* Darker orange on hover */
+  color: #cc5200;
   text-decoration: none !important;
 }
 

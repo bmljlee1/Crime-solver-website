@@ -1,0 +1,39 @@
+.crime-case-details {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.crime-case-details h1 {
+  font-size: 2rem;
+  color: #02253b;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.crime-case-details p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.crime-case-details p strong {
+  font-weight: bold;
+  color: #444;
+}
+
+/*----------- Loading and error-------- */
+.loading,
+.error-message {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.error-message {
+  color: red;
+}
