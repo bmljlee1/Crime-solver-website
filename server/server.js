@@ -3,7 +3,7 @@ import cors from "cors";
 import pg from "pg";
 import dotenv from "dotenv";
 
-const PORT = "8080";
+// const PORT = "8080";
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -110,6 +110,7 @@ app.post("/theories", async (req, res) => {
 });
 
 app.get("/test-db", async (req, res) => {
+  console.log("test-db");
   try {
     console.log("test-db endpoint or some shit");
     const result = await db.query("SELECT NOW()");
@@ -148,21 +149,6 @@ app.get("/crime-cases", async (req, res) => {
     res.status(500).json({ error: `${error.name}: ${error.message}` });
   }
 });
-// TODO: move to client side?
-// export const getAllCrimeCases = async () => {
-//   try {
-//     const response = await fetch(
-//       "https://week07-project-1.onrender.com/crime-cases"
-//     );
-//     if (!response.ok) {
-//       throw new Error("Failed to fetch crime cases");
-//     }
-//     return await response.json();
-//   } catch (error) {
-//     console.error("Error fetching crime cases", error);
-//     throw error;
-//   }
-// };
 
 // Join to fetch theories aswell as their related crime cases
 app.get("/theories-with-cases", async (req, res) => {
@@ -190,6 +176,6 @@ app.get("/theories-with-cases", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
+app.listen(8080, () => {
   console.log("Server is running on port 8080.");
 });
