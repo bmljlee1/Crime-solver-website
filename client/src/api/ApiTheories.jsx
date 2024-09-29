@@ -24,7 +24,9 @@ export const incrementLikes = async (id) => {
 
 export const getTheoriesWithCases = async () => {
   try {
-    const response = await fetch("http://localhost:8080/theories-with-cases");
+    const response = await fetch(
+      "https://week07-project-1.onrender.com/theories-with-cases"
+    );
     if (!response.ok) {
       throw new Error("Failed to fetch theories with cases");
     }

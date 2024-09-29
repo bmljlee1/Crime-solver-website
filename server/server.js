@@ -13,6 +13,13 @@ console.log("Database URL:", process.env.DATABASE_URL);
 const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
 });
+// chat gpt solution for crime cases join with theories not fetching (didnt work)
+const corsOptions = {
+  origin: ["http://localhost:5173", "https://week07-project-1.onrender.com"], // Replace with your frontend URLs
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 //  fetch a single crime case by its ID
 app.get("/crime-cases/:id", async (req, res) => {
@@ -142,7 +149,9 @@ app.get("/crime-cases", async (req, res) => {
 
 export const getAllCrimeCases = async () => {
   try {
-    const response = await fetch("https://week07-project-yykp.onrender.com");
+    const response = await fetch(
+      "https://week07-project-yykp.onrender.com/crime-cases"
+    );
     if (!response.ok) {
       throw new Error("Failed to fetch crime cases");
     }
