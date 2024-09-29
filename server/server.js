@@ -120,7 +120,8 @@ app.get("/test-db", async (req, res) => {
   }
 });
 
-//  increment likes
+//  increment likes NOT WORKING FOR NEW THEORIES
+
 app.put("/theories/:id/like", async (req, res) => {
   const { id } = req.params;
 

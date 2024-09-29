@@ -8,7 +8,7 @@ export const getAllTheories = async () => {
 };
 
 export const addNewTheory = async (theory) => {
-  const response = await fetch(API_URL, {
+  const response = await fetch(`${API_URL}/theories`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(theory),
