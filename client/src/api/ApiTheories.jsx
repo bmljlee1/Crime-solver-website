@@ -1,4 +1,5 @@
-const API_URL = "https://week07-project-1.onrender.com/theories";
+const API_URL = "https://week07-project-1.onrender.com";
+// const API_URL = "http://localhost:8080";
 
 export const getAllTheories = async () => {
   const response = await fetch(API_URL);
@@ -24,9 +25,7 @@ export const incrementLikes = async (id) => {
 
 export const getTheoriesWithCases = async () => {
   try {
-    const response = await fetch(
-      "https://week07-project-1.onrender.com/theories-with-cases"
-    );
+    const response = await fetch(`${API_URL}/theories-with-cases`);
     if (!response.ok) {
       throw new Error("Failed to fetch theories with cases");
     }
@@ -39,9 +38,7 @@ export const getTheoriesWithCases = async () => {
 
 export const getAllCrimeCases = async () => {
   try {
-    const response = await fetch(
-      "https://week07-project-1.onrender.com/crime-cases"
-    );
+    const response = await fetch(`${API_URL}/crime-cases`);
     if (!response.ok) {
       throw new Error("Failed to fetch crime cases");
     }
@@ -67,9 +64,7 @@ export const getTheoriesByCaseName = async (caseName) => {
 
 export const getCrimeCaseById = async (id) => {
   try {
-    const response = await fetch(
-      `https://week07-project-1.onrender.com/crime-cases/${id}`
-    );
+    const response = await fetch(`${API_URL}/crime-cases/${id}`);
     if (!response.ok) {
       throw new Error("Failed to fetch crime case");
     }

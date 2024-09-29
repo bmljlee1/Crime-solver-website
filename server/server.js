@@ -14,10 +14,10 @@ const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
 });
 // chat gpt solution for crime cases join with theories not fetching (didnt work)
-const corsOptions = {
-  origin: ["http://localhost:5173", "https://week07-project-1.onrender.com"], // Replace with your frontend URLs
-  optionsSuccessStatus: 200,
-};
+// const corsOptions = {
+//   origin: ["http://localhost:5173", "https://week07-project-1.onrender.com"], // Replace with your frontend URLs
+//   optionsSuccessStatus: 200,
+// };
 
 app.use(cors(corsOptions));
 
@@ -57,6 +57,7 @@ app.get("/theories/:caseName", async (req, res) => {
   const { caseName } = req.params;
 
   try {
+    console.log("attempting to get crime case");
     const result = await db.query(
       "SELECT * FROM theories WHERE crime_case = $1",
       [caseName]
@@ -146,11 +147,11 @@ app.get("/crime-cases", async (req, res) => {
     res.status(500).json({ error: `${error.name}: ${error.message}` });
   }
 });
-
+// TODO: move to client side?
 export const getAllCrimeCases = async () => {
   try {
     const response = await fetch(
-      "https://week07-project-yykp.onrender.com/crime-cases"
+      "https://week07-project-1.onrender.com/crime-cases"
     );
     if (!response.ok) {
       throw new Error("Failed to fetch crime cases");
