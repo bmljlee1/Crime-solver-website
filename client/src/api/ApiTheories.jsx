@@ -1,4 +1,4 @@
-const API_URL = "https://week07-project-1.onrender.com";
+const API_URL = "https://week07-project-yykp.onrender.com";
 // const API_URL = "http://localhost:8080";
 
 export const getAllTheories = async () => {
