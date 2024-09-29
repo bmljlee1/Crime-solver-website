@@ -19,7 +19,7 @@ const db = new pg.Pool({
 //   optionsSuccessStatus: 200,
 // };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 //  fetch a single crime case by its ID
 app.get("/crime-cases/:id", async (req, res) => {
