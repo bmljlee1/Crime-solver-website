@@ -9,13 +9,13 @@ export default function Home() {
       <p className="welcome-message">
         Dive deep into the world of mystery, crime, and speculation! Speculation
         Station is the ultimate platform where crime cases are described in
-        detail, evidence is laid out, and it's up to you to crack the case.
+        detail, evidence is laid out, and it&apos;s up to you to crack the case.
       </p>
 
       <section className="about-section">
         <h2>How it Works</h2>
         <p>
-          Each case comes with a set difficulty and a time duration. You’ll
+          Each case comes with a set difficulty and a time duration. You&apos;ll
           examine the evidence and come up with your own theory about what
           happened. The closer your theory matches the real events, the more
           points you earn! As the investigation window closes, the true facts
@@ -68,7 +68,7 @@ export default function Home() {
             <h3>Points and Rankings</h3>
             <p>
               Earn points based on the accuracy of your theories. Climb the
-              leaderboard and prove that you’re the sharpest detective at
+              leaderboard and prove that you&apos;re the sharpest detective at
               Speculation Station!
             </p>
           </div>

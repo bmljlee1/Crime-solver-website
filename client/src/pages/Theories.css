@@ -15,10 +15,20 @@ ul.theories-list {
   padding: 0;
 }
 
+ul.theories-list li {
+  background-color: #f0f4f8;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
 .theories-list h3 {
   font-size: 1.8rem; /* Make theory titles larger */
   color: #d32f2f; /* Bright red to stand out */
   margin-bottom: 10px;
+  margin-top: 5px;
 }
 
 .theories-list p {

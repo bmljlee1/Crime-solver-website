@@ -18,7 +18,9 @@ export const addNewTheory = async (theory) => {
 };
 
 export const incrementLikes = async (id) => {
-  const response = await fetch(`${API_URL}/${id}/like`, { method: "PUT" });
+  const response = await fetch(`${API_URL}/theories/${id}/like`, {
+    method: "PUT",
+  });
   if (!response.ok) throw new Error("Failed to like theory");
   return response.json();
 };

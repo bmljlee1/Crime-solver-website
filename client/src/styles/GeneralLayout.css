@@ -36,7 +36,6 @@ nav ul li a {
   font-size: 1.25rem; /* Larger font size with rem */
   font-weight: bold;
   transition: background-color 0.3s ease, color 0.3s ease;
-  padding: 8px 12px;
 }
 
 nav ul li a:hover {

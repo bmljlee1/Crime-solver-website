@@ -11,7 +11,7 @@ form {
 /* -----------Label Styling------- */
 form label {
   display: block;
-  /font-weight: bold;
+  font-weight: bold;
   color: #333;
   margin-bottom: 8px;
   margin-top: 15px;
@@ -19,7 +19,7 @@ form label {
 
 form input[type="text"],
 form textarea {
-  width: 100%;
+  width: 95%;
   padding: 10px;
   margin-top: 5px;
   margin-bottom: 15px;
